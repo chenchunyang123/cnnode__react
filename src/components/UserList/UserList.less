@@ -1,0 +1,27 @@
+.user_topic {
+    line-height: 32px;
+    .ant-list-item {
+        position: relative;
+        .ant-list-item-content {
+            display: block;
+        }
+        .login_name {
+            margin: 0 10px;
+        }
+        .topic_title {
+            margin-left: 38px;
+        }
+        time {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        // 响应式缩小字体
+        @media all and(max-width: 767px) {
+            time {
+                font-size: 12px;
+            }
+        }
+    }
+}
+

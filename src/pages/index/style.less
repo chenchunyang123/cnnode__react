@@ -1,0 +1,61 @@
+.wrap-content {
+    border: 1px solid #ccc;
+    border-top: none;
+    max-width: 980px;
+    margin: 0 auto;
+    .ant-list-item-action {
+        margin-left: 50px;
+    }
+    .ant-list-item-meta {
+        min-width: 200px;
+    }
+    .indexMenu {
+        border-right: none;
+        text-align: center;
+    }
+    .ant-menu-item {
+        margin: 0;
+    }
+    .indexMenu li:hover,
+    .indexMenu .ant-menu-item-selected {
+        transition: none;
+        border-right: 3px solid #1890ff;
+        background-color: #e6f7ff;
+        margin-left: 3px;
+    }
+    .indexList {
+        border-left: 1px solid #ccc;
+    }
+    // 小屏下的响应式处理
+    @media all and (max-width: 767px) {
+        .indexMenu {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            height: 40px;
+            justify-content: space-between;
+            li {
+               margin: 0 0 -1px 0;
+               width: 100%;
+               height: 100%;
+               padding: 0;
+               &:hover {
+                   border: none;
+                   margin: 0;
+                   border-bottom: 1px solid #1890ff;
+               }
+               a {
+                 width: 100%;   
+               }
+           }
+           .ant-menu-item-selected {
+                border: none;
+                border-bottom: 1px solid #1890ff;
+                margin: 0;
+           }
+        }
+    }
+}
+
+.wrap-content {
+    border-left: none;
+}
