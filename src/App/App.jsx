@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Layout } from 'antd';
 import './App.less';
 
@@ -14,20 +14,30 @@ import User from '../pages/user';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
+// 引入拓展程序组件的方法
+import { deal } from '../store/store.js';
+
 class App extends Component {
-    render() {
+    shouldComponentUpdate(nextprops, nextstate) {
+        // 判断当前的hash路径是否相同，不相同才更新，避免组件重复渲染
+        if(nextprops.location.pathname !== this.props.location.pathname) {
+            return true;
+        }
+        return false;
+    }
+     render() {
         return (
             <div className="pageWrap">
                 <Header></Header>
                 <Layout.Content>
                     <Switch>
-                        <Route path="/index/:id" component={Index}></Route>
-                        <Route path="/book" component={Book}></Route>
-                        <Route path="/about" component={About}></Route>
-                        <Route path="/details" component={Details}></Route>
-                        <Route path="/user" component={User}></Route>
+                        <Route path="/index/:id" component={deal(Index)}></Route>
+                        <Route path="/book" component={deal(Book)}></Route>
+                        <Route path="/about" component={deal(About)}></Route>
+                        <Route path="/details/:id" component={deal(Details)}></Route>
+                        <Route path="/user/:id" component={deal(User)}></Route>
                         {/* 定位到主页 */}
-                        <Route path="*" component={Index}></Route>
+                        <Redirect from="*" to="/index/all" component={deal(Index)}></Redirect>
                     </Switch>
                 </Layout.Content>
                 <Footer></Footer>

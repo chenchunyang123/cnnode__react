@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 
 class Footer extends Component {
+    shouldComponentUpdate() {
+        // 暂时不更新
+        return false;
+    }
     render() {
+        console.log("底部渲染一次");
         return (
             <Layout.Footer style={{
                 textAlign: "center"

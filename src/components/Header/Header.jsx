@@ -5,7 +5,12 @@ import "./Header.less";
 
 
 class Header extends Component {
+    shouldComponentUpdate() {
+        // 暂时不更新
+        return false;
+    }
     render() {
+        console.log("头部渲染一次")
         return (
             <Layout.Header>
                 <Row className="wrap">
